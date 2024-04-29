@@ -1,7 +1,14 @@
 import "./App.css";
+import PetInfo from "./components/PetInfo";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <PetInfo animal="dog" age={4} hasPet />
+      <PetInfo animal="cat" age={7} hasPet />
+      <PetInfo animal="" age={null} hasPet={false} />
+    </div>
+  );
 }
 
 export default App;
