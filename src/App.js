@@ -7,6 +7,7 @@ function App() {
   const buttonStyle = { backgroundColor: "lightcoral" };
   const [count, setCount] = useState(0);
   const incrementCount = () => setCount(count + 1);
+  const resetCount = () => setCount(0);
   return (
     <div className="App">
       <Counter count={count} />
@@ -14,13 +15,15 @@ function App() {
       <Button onClick={incrementCount} />
       <Button onClick={incrementCount} />
       <Button onClick={incrementCount} />
-      <div>
-        {count > 0 && (
-          <button style={buttonStyle} onClick={() => setCount(0)}>
+
+      {count > 0 && (
+        <div>
+          {" "}
+          <button style={buttonStyle} onClick={resetCount}>
             Reset
-          </button>
-        )}
-      </div>
+          </button>{" "}
+        </div>
+      )}
     </div>
   );
 }
