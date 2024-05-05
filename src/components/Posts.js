@@ -1,11 +1,12 @@
 import Post from "./Post";
 import { useEffect, useState } from "react";
+const API_URL = "https://jsonplaceholder.typicode.com/posts";
 function Posts() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch(API_URL)
       .then((res) => res.json())
       .then((posts) => setPosts(posts))
       .catch((error) => setError(error.message))
