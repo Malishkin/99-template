@@ -5,20 +5,26 @@ function Posts() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  useEffect(async () => {
-    try {
-      const res = await fetch(API_URL);
-      if (!res.ok) {
-        throw new Error("Something went wrong");
-      }
-      const posts = await res.json();
-      setPosts(posts);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+  useEffect(
+    () =>
+      async function fetchData() {
+        try {
+          const response = await fetch(API_URL);
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const posts = await response.json();
+          setPosts(posts);
+        } catch (error) {
+          setError(error.message);
+        } finally {
+          setLoading(false);
+        }
+        fetchData();
+      },
+
+    []
+  );
 
   // useEffect(() => {
   //   fetch(API_URL)
