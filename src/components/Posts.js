@@ -5,13 +5,28 @@ function Posts() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((posts) => setPosts(posts))
-      .catch((error) => setError(error.message))
-      .finally(() => setLoading(false));
+  useEffect(async () => {
+    try {
+      const res = await fetch(API_URL);
+      if (!res.ok) {
+        throw new Error("Something went wrong");
+      }
+      const posts = await res.json();
+      setPosts(posts);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  // useEffect(() => {
+  //   fetch(API_URL)
+  //     .then((res) => res.json())
+  //     .then((posts) => setPosts(posts))
+  //     .catch((error) => setError(error.message))
+  //     .finally(() => setLoading(false));
+  // }, []);
   if (error) {
     return <h1>Error: {error}</h1>;
   }
