@@ -19,10 +19,9 @@ function App() {
   const toggleTodoHandler = (id) => {
     setTodos(
       todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, isCompleted: !todo.isCompleted };
-        }
-        return todo;
+        return todo.id === id
+          ? { ...todo, isCompleted: !todo.isCompleted }
+          : { ...todo };
       })
     );
   };
