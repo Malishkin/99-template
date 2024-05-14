@@ -1,32 +1,33 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 const Menu = () => {
   return (
     <nav>
       <NavLink
         style={({ isActive }) =>
-          isActive ? { color: 'lightyellow', textDecoration: 'none' } : {}
+          isActive ? { color: "lightyellow", textDecoration: "none" } : {}
         }
         to="."
         end
       >
         Home
       </NavLink>
-      <NavLink to="courses">Courses</NavLink>
       <NavLink
-        className={({ isActive }) => (isActive ? 'activeLink' : 'link')}
         to="about"
+        className={({ isActive }) => (isActive ? "activeLink" : "link")}
       >
         About
       </NavLink>
+      <NavLink to="courses">Courses</NavLink>
+
       <NavLink
-        className={({ isActive }) => (isActive ? 'activeLink' : 'link')}
         to="contacts"
+        className={({ isActive }) => (isActive ? "activeLink" : "link")}
       >
         Contacts
       </NavLink>
     </nav>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;
