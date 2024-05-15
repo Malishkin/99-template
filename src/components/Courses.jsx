@@ -24,8 +24,14 @@ const Courses = () => {
   );
 
   useEffect(() => {
-    setSortedCourses(sortKeys(courses, sortKey));
-  }, [sortKey]);
+    if (!SORT_KEYS.includes(sortKey)) {
+      navigate(".");
+      setSortKey();
+      setSortedCourses([...courses]);
+    } else {
+      setSortedCourses(sortKeys(courses, sortKey));
+    }
+  }, [sortKey, navigate]);
 
   const handleSortChange = (event) => {
     const newSortKey = event.target.value;
