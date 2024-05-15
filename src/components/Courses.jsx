@@ -19,9 +19,6 @@ const Courses = () => {
   const [sortedCourses, setSortedCourses] = useState(
     sortKeys(courses, sortKey)
   );
-  useEffect(() => {
-    setSortKey(sort);
-  }, [sort]);
 
   useEffect(() => {
     if (!SORT_KEYS.includes(sortKey)) {
