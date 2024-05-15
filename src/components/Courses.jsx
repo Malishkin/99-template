@@ -14,8 +14,8 @@ function sortKeys(courses, key) {
 const Courses = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { sort } = queryString.parse(location.search);
-  const [sortKey, setSortKey] = useState(sort);
+  const query = queryString.parse(location.search);
+  const [sortKey, setSortKey] = useState(query.sort);
   const [sortedCourses, setSortedCourses] = useState(
     sortKeys(courses, sortKey)
   );
