@@ -6,7 +6,7 @@ function UserInfo() {
   console.log(user);
   return (
     <>
-      <h1>{user.user}</h1>
+      <h1>{user.userName}</h1>
     </>
   );
 }

@@ -7,7 +7,7 @@ import ChangeUser from "./components/ChangeUser";
 function App() {
   const [user, setUser] = useState("Bogdan");
   return (
-    <UserContext.Provider value={{ user: user, setUser: setUser }}>
+    <UserContext.Provider value={{ userName: user, changeUserName: setUser }}>
       <div className="App">
         <User />
         <ChangeUser />
