@@ -4,13 +4,12 @@ function ChangeUser() {
   const { userName, changeUserName } = useContext(UserContext);
   return (
     <>
-      <button
-        onClick={() =>
-          changeUserName(userName === "Bogdan" ? "Alice" : "Bogdan")
-        }
-      >
-        Change user
-      </button>
+      <input
+        type="text"
+        value={userName}
+        onChange={(e) => changeUserName(e.target.value)}
+      />
+      <button onClick={() => changeUserName("Bogdan")}>Reset</button>
     </>
   );
 }
