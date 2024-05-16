@@ -5,7 +5,7 @@ function ChangeUser() {
   return (
     <>
       <button onClick={() => setUser(user === "Bogdan" ? "Alice" : "Bogdan")}>
-        Change User
+        Change user
       </button>
     </>
   );
