@@ -2,11 +2,11 @@ import UserContext from "../context/UserContext";
 import { useContext } from "react";
 
 function UserInfo() {
-  const user = useContext(UserContext);
-  console.log(user);
+  const { userName } = useContext(UserContext);
+  console.log(userName);
   return (
     <>
-      <h1>{user.userName}</h1>
+      <h1>{userName}</h1>
     </>
   );
 }
